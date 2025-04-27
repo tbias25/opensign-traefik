@@ -1,5 +1,5 @@
 # opensign-traefik
-This repository provides a complete Docker Compose setup to run OpenSign behind a Traefik reverse proxy. It enables a simple, secure, and production-ready deployment of OpenSign with automatic routing, HTTPS (Let's Encrypt), and configurable domain settings.
+This repository provides a complete Docker Compose setup to run [OpenSign](https://www.opensignlabs.com/) behind a [Traefik](https://traefik.io/traefik/) reverse proxy. It enables a simple, secure, and production-ready deployment of OpenSign with automatic routing, HTTPS (Let's Encrypt), and configurable domain settings.
 
 I noticed on the [OpenSign Discord](https://discord.com/invite/xe9TDuyAyj) that many users are having trouble hosting OpenSign behind a Traefik reverse proxy. After reviewing the discussions, I realized that most people are simply forgetting to include the following lines in their docker-compose.yml:
 ```
