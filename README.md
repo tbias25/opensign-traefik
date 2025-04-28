@@ -3,12 +3,19 @@ This repository provides a complete Docker Compose setup to run [OpenSign](https
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Reverse Proxy](#reverse-proxy)
-3. [OpenSign Services](#opensign-services)
+2. [Installation Guide](#installation-guide)
+    1. [Prerequisites](#prerequisites)
+    2. [Clone the Repository](#clone-the-repository)
+    3. [Set Up Environment Variables](#set-up-environment-variables)
+    4. [Run the Containers](#run-the-containers)
+    5. [Verify the Containers are Running](#verify-the-containers-are-running)
+    6. [Access the Application](#access-the-application)
+4. [Reverse Proxy](#reverse-proxy)
+5. [OpenSign Services](#opensign-services)
     1. [MongoDB](#mongodb)
     2. [OpenSign Server](#opensign-server)
     3. [OpenSign Client](#opensign-client)
-4. [Configuration File Description](#configuration-file-description)
+6. [Configuration File Description](#configuration-file-description)
     1. [Frontend Configuration](#frontend-configuration)
     2. [Backend Configuration](#backend-configuration)
     3. [Storage Configuration](#storage-configuration)
@@ -17,6 +24,63 @@ This repository provides a complete Docker Compose setup to run [OpenSign](https
 ## Introduction
 
 I noticed on the [OpenSign Discord](https://discord.com/invite/xe9TDuyAyj) that many users were having trouble hosting OpenSign behind a Traefik reverse proxy. To make the process easier and provide a ready-to-use solution, I created this repository with a complete, working Docker Compose setup.
+
+## Installation Guide
+
+Follow these steps to clone the repository and set up the OpenSign application on your local machine or server.
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- [Git](https://git-scm.com/)
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Clone the Repository
+
+First, clone the OpenSign repository to your local machine or server:
+
+```bash
+    git clone https://github.com/tbias25/opensign-traefik.git
+    cd opensign-traefik
+```
+
+### Set Up Environment Variables
+
+You need to update values in the .env file, such as:
+
+- **PUBLIC_URL**: Set this to the URL where the home page of the app will be accessed (e.g., `https://opensign.example.com/`).
+- **SERVER_URL**: Set this to the URL from which the backend APIs are accessible (e.g., `https://opensign.example.com/api/app`).
+- **MONGO_URI**: Set this to the MongoDB URI to connect to the backend database (e.g., `mongodb://mongo:27017/opensign`).
+- **USE_LOCAL**: Set this to `TRUE` if you are using local storage.
+
+### Run the Containers
+
+```bash
+    docker-compose up
+```
+
+To run the containers in the background (detached mode), use the following command:
+
+```bash
+    docker-compose up -d
+```
+
+### Verify the Containers are Running
+
+Check the status of your containers:
+
+```bash
+    docker ps
+```
+
+### Access the Application
+Once the application is up and running, you can access it by navigating to the URL defined in PUBLIC_URL, for example:
+
+```
+    https://opensign.example.com/
+```
 
 ## Reverse Proxy
 
